@@ -1,0 +1,11 @@
+.course {
+    background-color: azure;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.course h2 {
+    color: #333;
+}
+.course p {
+    color: #666;
+}
