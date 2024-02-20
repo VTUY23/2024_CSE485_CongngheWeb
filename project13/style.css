@@ -1,5 +1,5 @@
 .course {
-    background-color: azure;
+    background-color: rgb(0, 0, 0);
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -8,4 +8,9 @@
 }
 .course p {
     color: #666;
+}
+
+img{
+    width: 100px;
+    height: 100px;
 }
