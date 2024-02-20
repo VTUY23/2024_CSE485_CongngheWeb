@@ -1,4 +1,3 @@
-<!-- courses.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +7,14 @@
     <title>Danh sách khóa học</title>
     <style>
         /* Thêm các định kiểu CSS của bạn ở đây */
+        body {
+            margin: 0px;
+            font-family: Calibri;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 30px;
+        }
+
         .course {
             background-color: #f9f9f9;
             padding: 10px;
@@ -40,15 +47,16 @@ quốc tế.',
         // Thêm các khóa học khác vào đây
     ];
     // Hiển thị danh sách khóa học
-    foreach ($courses as $course) {
-        echo '<div class="course">';
-        echo '<h2>' . $course['title'] . '</h2>';
-        echo '<p>' . $course['description'] . '</p>';
-        echo '<p>Học phí: ' . $course['fee'] . '</p>';
-        echo '<p>Khải giảng: ' . $course['start_date'] . '</p>';
-        echo '<p>Thời lượng: ' . $course['duration'] . '</p>';
-        echo '</div>';
-    }
+    for ($i = 1; $i < 10; $i++)
+        foreach ($courses as $course) {
+            echo '<div class="course">';
+            echo '<h2>' . $course['title'] . '</h2>';
+            echo '<p>' . $course['description'] . '</p>';
+            echo '<p>Học phí: ' . $course['fee'] . '</p>';
+            echo '<p>Khải giảng: ' . $course['start_date'] . '</p>';
+            echo '<p>Thời lượng: ' . $course['duration'] . '</p>';
+            echo '</div>';
+        }
     ?>
 </body>
 
