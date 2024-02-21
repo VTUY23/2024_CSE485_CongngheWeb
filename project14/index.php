@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FORM</title>
+    <script src="https://cdn.ckeditor.com/4.22.1/basic/ckeditor.js"></script>
     <style>
         body {
             background-color: whitesmoke;
@@ -16,6 +17,7 @@
             width: 600px;
             background-color: white;
             padding: 15px;
+            box-sizing: border-box;
         }
 
         h2 {
@@ -31,6 +33,7 @@
 
         form>div>* {
             margin: 5px 0px;
+            box-sizing: border-box;
         }
 
         h3 {
@@ -39,9 +42,7 @@
         }
 
         input[type="text"] {
-            width: 100%;
             height: 30px;
-            box-sizing: border-box;
         }
 
         select {
@@ -50,16 +51,11 @@
             border-radius: 5px;
         }
 
-        textarea {
-            width: 100%;
-        }
-
         form>div:last-child {
             margin: 0px;
             display: flex;
-            margin-left: 480px;
+            margin-left: 450px;
             gap: 10px;
-            box-sizing: border-box;
         }
     </style>
 </head>
@@ -69,66 +65,55 @@
     $titItems = [
         "Employee ID", "Last Name", "First Name", "Gender", "Title", "Suffix",
         "BirthDate", "HireDate", "SSN # (if applicable)", "Reports To",
-        "Email", "Address", "City", "Region", "Prostal Code", "Country",
-        "US Home Phone", "Photo",
+        "Email", "Address", "City", "Region", "Prostal Code", "Country", "US Home Phone", "Photo",
         "Notes", "Preferred Shift", "Active?", "Are you human?"
     ];
-    $genItems = [
-        "Male", "Female", "XXX", "ZZZ"
-    ];
+    $genItems = ["Male", "Female", "XXX", "ZZZ"];
     $countries = array(
-        "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla",
-        "Antigua & Barbuda",
-        "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan",
-        "Bahamas", "Bahrain",
-        "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin",
-        "Bermuda", "Bhutan",
-        "Bolivia", "Bosnia & Herzegovina", "Botswana", "Brazil", "British Virgin 
-    Islands", "Brunei",
+        "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua & Barbuda",
+        "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain",
+        "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan",
+        "Bolivia", "Bosnia & Herzegovina", "Botswana", "Brazil", "British Virgin Islands", "Brunei",
         "Bulgaria", "Burkina Faso", "Burundi", "Vietnam"
     );
     echo '<form action=""><h2>Basic Info</h2><div>';
     for ($i = 1; $i < 22; $i++) {
-        if ($titItems[$i] == "Email") {
+        if ($titItems[$i] == "Email")
             echo "</div><h2>Contact Info</h2><div>";
-        } else if ($titItems[$i] == "Notes") {
+        else if ($titItems[$i] == "Notes")
             echo "</div><h2>Optional Info</h2><div>";
-        }
-        echo "<h3>$titItems[$i]</h3><div>";
+        echo "<h3>$titItems[$i]</h3>";
         if ($titItems[$i] == "Gender") {
-            foreach ($genItems as $item) {
-                echo '<input type="radio" id="$item" name="gender" value="$item">
-                    <label for="$item">' . $item . '</label><br>';
-            }
+            echo "<div>";
+            foreach ($genItems as $item)
+                echo '<input type="radio" id="' . $item . '" name="' . $titItems[$i] . '" value="'
+                    . $item . '"><label for="' . $item . '">' . $item . '</label><br>';
+            echo "</div>";
         } else if ($titItems[$i] == "Reports To") {
-            echo '<select name="" id="">';
-            foreach ($genItems as $item) {
-                echo '<option value="$item">' . $item . '</option>';
-            }
+            echo '<select name="' . $titItems[$i] . '" id="">';
+            foreach ($genItems as $item)
+                echo '<option value="' . $item . '">' . $item . '</option>';
             echo '</select>';
         } else if ($titItems[$i] == "Country") {
-            echo '<select name="" id="">';
-            foreach ($countries as $item) {
-                echo '<option value="$item">' . $item . '</option>';
-            }
+            echo '<select name="' . $titItems[$i] . '" id="">';
+            foreach ($countries as $item)
+                echo '<option value="' . $item . '">' . $item . '</option>';
             echo '</select>';
         } else if ($titItems[$i] == "Preferred Shift") {
-            echo '<input type="checkbox" id="" name="" value="Regular">
+            echo '<div><input type="checkbox" id="" name="' . $titItems[$i] . '" value="Regular">
             <label for="Regular">Regular</label><br>
-            <input type="checkbox" id="" name="" value="Gravy Yard">
-            <label for="Gravy Yard">Gravy Yard</label><br>';
-        } else if ($titItems[$i] == "Active?") {
-            echo '<input type="checkbox" id="" name="" value="active">
-            <label for="active"></label><br>';
-        } else if ($titItems[$i] == "Notes") {
-            echo '<textarea id="" name="" rows="10" cols="50"></textarea>';
-        } else {
-            echo "<input type=" . '"text"' . ">";
-        }
-        echo "</div>";
+            <input type="checkbox" id="" name="' . $titItems[$i] . '" value="Gravy Yard">
+            <label for="Gravy Yard">Gravy Yard</label><br></div>';
+        } else if ($titItems[$i] == "Active?")
+            echo '<div><input type="checkbox" id="" name="' . $titItems[$i] . '" value="active">
+            <label for="active"></label><br></div>';
+        else if ($titItems[$i] == "Notes")
+            echo '<textarea id="editor" name="' . $titItems[$i] . '" rows="10" cols=""></textarea>';
+        else
+            echo "<input type=" . '"text"' . " name='{$titItems[$i]}'>";
     }
-    echo '</div><h2></h2><div><input type="submit" value="Submit">
-    <input type="reset" value="Reset"></div></form>';
+    echo '</div><h2></h2><div><input type="submit" value="Submit"><input type="reset" value="Reset">
+    </div></form><script>CKEDITOR.replace("editor", {height: "150px"});</script>';
     ?>
 </body>
 
