@@ -1,16 +1,32 @@
 .course {
-    background-color: rgb(0, 0, 0);
     padding: 10px;
     margin-bottom: 20px;
 }
 .course h2 {
     color: #333;
+    font-size: 20px;
+    margin-top: 12px;
+    margin-bottom: 15px;
 }
 .course p {
     color: #666;
+    font-size: 13px;
+    margin-bottom: auto;
 }
 
 img{
     width: 100px;
     height: 100px;
+}
+
+i{
+    width: min-content;
+}
+
+.bi-gift{
+    padding: 0 0 0 15px;
+}
+
+.aficon{
+    padding: 0;
 }

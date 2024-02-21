@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Danh sách khóa học</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -88,7 +90,10 @@
             echo '<img src="' . $course['image'] . '" alt="' . $course['title'] . '" style="width:100%">';
             echo '<h2 style="font-weight:bold;">' . $course['title'] . '</h2>';
             echo '<p>' . $course['description'] . '</p>';
-            echo '<p>Học phí: ' . $course['fee'] . '</p>';
+            echo '<div class="row">';
+            echo '<div class="bi bi-gift col-2"></div>';
+            echo '<div class="col-10 aficon"><p>Học phí: ' . $course['fee'] . '</p></div>';
+            echo '</div>';
             echo '<p>Khai giảng: ' . $course['start_date'] . '</p>';
             echo '<p>Thời lượng: ' . $course['duration'] . '</p>';
             echo '</div>';
