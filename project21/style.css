@@ -1,0 +1,14 @@
+.product-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.paging{
+    margin-top: 40px;
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    text-align: center;    
+}
